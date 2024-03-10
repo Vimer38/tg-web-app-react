@@ -3,7 +3,7 @@ import Button from "../../Button/Button.css";
 import {useTelegram} from "../../../hooks/useTelegram";
 
 const Header = (props) => {
-    const {user,onClose} = useTelegram();
+    const {user, onClose} = useTelegram();
     return (
         <div className={'header'}>
             <Button onClick={onClose}>Закрыть</Button>
@@ -12,6 +12,6 @@ const Header = (props) => {
             </span>
         </div>
     );
-};
+}
 
 export default Header;
