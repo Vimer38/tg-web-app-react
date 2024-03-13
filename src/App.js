@@ -1,62 +1,26 @@
-import { useState, useEffect } from "react";
-import "./App.css";
-import Card from "./Components/Card/Card";
-import Cart from "./Components/Cart/Cart";
-const { getData } = require("./db/db");
-const foods = getData();
-
-const tele = window.Telegram.WebApp;
+import './App.css';
+import {useEffect} from "react";
+import {useTelegram} from "./hooks/useTelegram";
+import Header from "./components/Header/Header";
+import {Route, Routes} from 'react-router-dom'
+import ProductList from "./components/ProductList/ProductList";
+import Form from "./components/Form/Form";
 
 function App() {
-    const [cartItems, setCartItems] = useState([]);
+    const {onToggleButton, tg} = useTelegram();
 
     useEffect(() => {
-        tele.ready();
-    });
-
-    const onAdd = (food) => {
-        const exist = cartItems.find((x) => x.id === food.id);
-        if (exist) {
-            setCartItems(
-                cartItems.map((x) =>
-                    x.id === food.id ? { ...exist, quantity: exist.quantity + 1 } : x
-                )
-            );
-        } else {
-            setCartItems([...cartItems, { ...food, quantity: 1 }]);
-        }
-    };
-
-    const onRemove = (food) => {
-        const exist = cartItems.find((x) => x.id === food.id);
-        if (exist.quantity === 1) {
-            setCartItems(cartItems.filter((x) => x.id !== food.id));
-        } else {
-            setCartItems(
-                cartItems.map((x) =>
-                    x.id === food.id ? { ...exist, quantity: exist.quantity - 1 } : x
-                )
-            );
-        }
-    };
-
-    const onCheckout = () => {
-        tele.MainButton.text = "Pay :)";
-        tele.MainButton.show();
-    };
+        tg.ready();
+    }, [])
 
     return (
-        <>
-            <h1 className="heading">Order Food</h1>
-            <Cart cartItems={cartItems} onCheckout={onCheckout}/>
-            <div className="cards__container">
-                {foods.map((food) => {
-                    return (
-                        <Card food={food} key={food.id} onAdd={onAdd} onRemove={onRemove} />
-                    );
-                })}
-            </div>
-        </>
+        <div className="App">
+            <Header />
+            <Routes>
+                <Route index element={<ProductList />}/>
+                <Route path={'form'} element={<Form />}/>
+            </Routes>
+        </div>
     );
 }
 

@@ -1,5 +1,5 @@
 /*import pizzaImg from "../images/pizza.png";*/
-import burgerImg from "../images/burger.png";
+import burgerImg from "../../images/burger.png";
 /*import cocaImg from "../images/coca.png";
 import saladImg from "../images/salad.png";
 import waterImg from "../images/water.png";
