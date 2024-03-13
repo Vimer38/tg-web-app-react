@@ -3,7 +3,7 @@ import './ProductList.css';
 import ProductItem from "../ProductItem/ProductItem";
 import {useTelegram} from "../../hooks/useTelegram";
 import {useCallback, useEffect} from "react";
-import '.Image/Thelastofus.png';
+import '../Image/Thelastofus.png';
 
 const products = [
     {title: 'Джинсы', price: 5000, description: 'Синего цвета, прямые',Image: Thelastofus.png, id: 1},
