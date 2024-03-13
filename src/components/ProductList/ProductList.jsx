@@ -1,12 +1,12 @@
+/*
 import React, {useState} from 'react';
 import './ProductList.css';
 import ProductItem from "../ProductItem/ProductItem";
 import {useTelegram} from "../../hooks/useTelegram";
 import {useCallback, useEffect} from "react";
-import '../Image/Thelastofus.png';
 
 const products = [
-    {title: 'Джинсы', price: 5000, description: 'Синего цвета, прямые',Image: Thelastofus.png, id: 1},
+    {id: '1', title: 'Джинсы', price: 5000, description: 'Синего цвета, прямые'},
     {id: '2', title: 'Куртка', price: 12000, description: 'Зеленого цвета, теплая'},
     {id: '3', title: 'Джинсы 2', price: 5000, description: 'Синего цвета, прямые'},
     {id: '4', title: 'Куртка 8', price: 122, description: 'Зеленого цвета, теплая'},
@@ -83,4 +83,4 @@ const ProductList = () => {
     );
 };
 
-export default ProductList;
+export default ProductList;*/
